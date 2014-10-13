@@ -8,28 +8,17 @@ namespace CM
     [TestFixture]
     public class Requirement2
     {
-        [Test]
-        [TestCase(60, new[] { 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 })]
-        [TestCase(42, new[] { 1, 2, 3, 6, 7, 14, 21, 42 })]
-        public void Test(int input, int[] expected)
-        {
-            CollectionAssert.AreEqual(expected, BruteForcePositiveDivisors(input));
-        }
-
-        [Test]
-        [TestCase(-1)]
-        [TestCase(0)]
-        [TestCase(1)]
-        public void TestThrowsAndException(int input)
-        {
-            Assert.Throws<ArgumentException>(() => BruteForcePositiveDivisors(input).ToList());
-        }
-
         /// <summary>
-        /// Naive implementation that uses a brute-force approach.
+        ///   Find the positive divisors of the input integer.
         /// </summary>
         /// <param name="input">The number to check for positive divisors</param>
         /// <returns>The list of positive divisors</returns>
+        /// <remarks>
+        ///  Naive implementation that uses a simplistic brute-force approach.
+        ///  This could be further improved if the input range was known, perhaps used a cached lookup table.
+        ///  This implementation doesn't check to see if input is prime (perhaps using a lookup table).
+        ///  Basically, if there were additional requirements, I would have adjusted the solution :)
+        /// </remarks>
         public static IEnumerable<int> BruteForcePositiveDivisors(int input)
         {
             if (input <= 1)
@@ -45,6 +34,23 @@ namespace CM
             }
 
             yield return input;
+        }
+
+        [Test]
+        [TestCase(60, new[] { 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 })]
+        [TestCase(42, new[] { 1, 2, 3, 6, 7, 14, 21, 42 })]
+        public void Test(int input, int[] expected)
+        {
+            CollectionAssert.AreEqual(expected, BruteForcePositiveDivisors(input));
+        }
+
+        [Test]
+        [TestCase(-1)]
+        [TestCase(0)]
+        [TestCase(1)]
+        public void TestThrowsAnException(int input)
+        {
+            Assert.Throws<ArgumentException>(() => BruteForcePositiveDivisors(input).ToList());
         }
     }
 }

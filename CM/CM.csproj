@@ -37,8 +37,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Requirement3.cs" />
     <Compile Include="Requirement1.cs" />
     <Compile Include="Requirement2.cs" />
+    <Compile Include="Requirement4.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
