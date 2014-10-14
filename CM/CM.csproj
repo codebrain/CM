@@ -48,6 +48,15 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\he.js" />
+    <Content Include="lib\jquery.js" />
+    <Content Include="lib\qunit.css" />
+    <Content Include="lib\qunit.js" />
+    <Content Include="JavaScriptTests.html" />
+    <Content Include="Requirement6.js" />
+    <Content Include="Requirement5.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

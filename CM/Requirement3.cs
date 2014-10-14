@@ -119,6 +119,7 @@ namespace CM
         }
 
         [Test]
+        [Ignore("Run locally")]
         public void TestEquilateralTriangleSpecialisationIsFasterThanScalene()
         {
             var specialised = Time(() => CalculateEquilateralTriangleArea(1));
@@ -136,6 +137,7 @@ namespace CM
         }
 
         [Test]
+        [Ignore("Run locally")]
         public void TestIsocelesTriangleSpecialisationIsFasterThanScalene()
         {
             var specialised = Time(() => CalculateIsocelesTriangleArea(6, 3));
