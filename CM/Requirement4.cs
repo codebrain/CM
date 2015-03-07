@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 
 namespace CM
@@ -8,6 +9,18 @@ namespace CM
     {
         public static int[] GetCommonNumbers(int[] input)
         {
+            // Check not null
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+
+            // Check has items
+            if (input.Length == 0)
+            {
+                throw new ArgumentException("Must have at least one item.", "input");
+            }
+
             // If only one input then return it
             if (input.Length == 1)
             {
@@ -41,6 +54,18 @@ namespace CM
         public void Test(int[] input, int[] expected)
         {
             CollectionAssert.AreEqual(expected, GetCommonNumbers(input));
+        }
+
+        [Test]
+        public void TestWithNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => GetCommonNumbers(null));
+        }
+
+        [Test]
+        public void TestWithEmptyArray()
+        {
+            Assert.Throws<ArgumentException>(() => GetCommonNumbers(Enumerable.Empty<int>().ToArray()));
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿/// <reference path="lib/he.js" />
 /// <reference path="lib/jquery.js" />
 
+// There are a variety of ways to implement this function
+
 function replacenbsp(input) {
     var temp = he.encode(input, {
         'useNamedReferences': true

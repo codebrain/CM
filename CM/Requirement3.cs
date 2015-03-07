@@ -50,7 +50,7 @@ namespace CM
             // I had considered implementing a right-angle check here but decided
             // against it for the following reasons:
             // - Special right-angle triangles are uncommon (http://en.wikipedia.org/wiki/Special_right_triangles#Common_Pythagorean_triples)
-            // - The computational cost of checking the right-angledness likely outweighs just using the scalene algorithm
+            // - The computational cost of checking the right-angledness *likely* outweighs just simply using the scalene algorithm
 
             // Scalene (any length of sides)
             return CalculateScaleneTriangleArea(side1, side2, side3);
