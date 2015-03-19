@@ -8,7 +8,7 @@ namespace CM
         [Test]
         public void TestGetNamesOfSalesPeopleThatHaveOrderWithGeorge()
         {
-            var names = GetNames("SELECT DISTINCT(Name) FROM Salesperson " +
+            var names = GetData("SELECT DISTINCT(Name) FROM Salesperson " +
                                  "INNER JOIN Orders " +
                                  "ON Salesperson.Salespersonid = Orders.Salespersonid " +
                                  "AND Orders.Customerid = 4");
@@ -21,7 +21,7 @@ namespace CM
         [Test]
         public void TestGetNamesOfSalesPeopleThatDoNotHaveOrderWithGeorge()
         {
-            var names = GetNames("SELECT DISTINCT(Name) FROM Salesperson " +
+            var names = GetData("SELECT DISTINCT(Name) FROM Salesperson " +
                                  "INNER JOIN Orders " +
                                  "ON Salesperson.Salespersonid = Orders.Salespersonid " +
                                  "AND Orders.SalespersonID NOT IN (SELECT SalespersonID FROM Orders Where CustomerID = 4)");
@@ -33,7 +33,7 @@ namespace CM
         [Test]
         public void TestGetNamesOfSalesPeopleThatHaveMoreThanOneOrder()
         {
-            var names = GetNames("SELECT Name FROM Salesperson " +
+            var names = GetData("SELECT Name FROM Salesperson " +
                                  "INNER JOIN Orders " +
                                  "ON Salesperson.Salespersonid = Orders.Salespersonid " +
                                  "GROUP BY SalesPerson.Name " +

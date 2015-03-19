@@ -123,8 +123,8 @@ namespace CM
         public void TestEquilateralTriangleSpecialisationIsFasterThanScalene()
         {
             var specialised = Time(() => CalculateEquilateralTriangleArea(1));
-            var general = Time(() => CalculateScaleneTriangleArea(1, 1, 1));
-            Assert.GreaterOrEqual(general, specialised);
+            var generalised = Time(() => CalculateScaleneTriangleArea(1, 1, 1));
+            Assert.GreaterOrEqual(generalised, specialised);
         }
 
         [Test]

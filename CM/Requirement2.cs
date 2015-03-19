@@ -15,7 +15,7 @@ namespace CM
         /// <returns>The list of positive divisors</returns>
         /// <remarks>
         ///  Naive implementation that uses a simplistic brute-force approach.
-        ///  This could be further improved if the input range was known, perhaps used a cached lookup table.
+        ///  This could be further improved if the input range was known, perhaps using a cached lookup table.
         ///  This implementation doesn't check to see if input is prime (perhaps using a lookup table if the input range was known).
         ///  Basically, if there were additional requirements, I would have adjusted the solution :)
         /// </remarks>

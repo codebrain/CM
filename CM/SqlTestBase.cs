@@ -27,7 +27,8 @@ namespace CM
             var connection = new SQLiteConnection("FullUri=file::memory:");
             connection.Open();
             ExecuteNonQuery(connection, "CREATE TABLE Salesperson (SalespersonID int, Name VARCHAR(64), Age int, Salary int)");
-            ExecuteNonQuery(connection, "INSERT INTO Salesperson VALUES (1,'Alice',61,140000)," +
+            ExecuteNonQuery(connection, "INSERT INTO Salesperson VALUES " +
+                                        "(1,'Alice',61,140000)," +
                                         "(2,'Bob',34,44000)," +
                                         "(6,'Chris',34,40000)," +
                                         "(8,'Derek',41,52000)," +
@@ -35,14 +36,15 @@ namespace CM
                                         "(16,'Fred',38,38000)");
 
             ExecuteNonQuery(connection, "CREATE TABLE Customer (CustomerID int, Name VARCHAR(64))");
-            ExecuteNonQuery(connection, "INSERT INTO Customer VALUES (4,'George')," +
+            ExecuteNonQuery(connection, "INSERT INTO Customer VALUES " + 
+                                        "(4,'George')," +
                                         "(6,'Harry')," +
                                         "(7,'Ingrid')," +
                                         "(11,'Jerry')");
 
-            ExecuteNonQuery(connection,
-                "CREATE TABLE Orders (OrderID int, OrderDate DATETIME, CustomerID int, SalespersonID int, NumberOfUnits int, CostOfUnit int)");
-            ExecuteNonQuery(connection, "INSERT INTO Orders VALUES (3,'2013-01-17',4,2,4,400)," +
+            ExecuteNonQuery(connection, "CREATE TABLE Orders (OrderID int, OrderDate DATETIME, CustomerID int, SalespersonID int, NumberOfUnits int, CostOfUnit int)");
+            ExecuteNonQuery(connection, "INSERT INTO Orders VALUES " +
+                                        "(3,'2013-01-17',4,2,4,400)," +
                                         "(6,'2013-02-07',4,1,1,600)," +
                                         "(10,'2013-03-04',7,6,2,300)," +
                                         "(17,'2013-03-15',6,1,5,300)," +
@@ -52,7 +54,7 @@ namespace CM
             return connection;
         }
 
-        protected List<string> GetNames(string sql)
+        protected List<string> GetData(string sql)
         {
             var names = new List<string>();
             ExecuteReader(sql, reader => names.Add(reader["Name"].ToString()));
