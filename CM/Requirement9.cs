@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace CM
 {
@@ -9,12 +8,10 @@ namespace CM
         [Test]
         public void TestGetNamesOfSalesPeopleThatHaveOrderWithGeorge()
         {
-            var names = new List<string>();
-            ExecuteReader("SELECT DISTINCT(Name) FROM Salesperson " +
-                          "INNER JOIN Orders " +
-                          "ON Salesperson.Salespersonid = Orders.Salespersonid " +
-                          "AND Orders.Customerid = 4", 
-                          reader => names.Add(reader["Name"].ToString()));
+            var names = GetNames("SELECT DISTINCT(Name) FROM Salesperson " +
+                                 "INNER JOIN Orders " +
+                                 "ON Salesperson.Salespersonid = Orders.Salespersonid " +
+                                 "AND Orders.Customerid = 4");
 
             Assert.AreEqual(2, names.Count);
             Assert.Contains("Bob", names);
@@ -24,12 +21,10 @@ namespace CM
         [Test]
         public void TestGetNamesOfSalesPeopleThatDoNotHaveOrderWithGeorge()
         {
-            var names = new List<string>();
-            ExecuteReader("SELECT DISTINCT(Name) FROM Salesperson " +
-                          "INNER JOIN Orders " +
-                          "ON Salesperson.Salespersonid = Orders.Salespersonid " +
-                          "AND Orders.SalespersonID NOT IN (SELECT SalespersonID FROM Orders Where CustomerID = 4)", 
-                          reader => names.Add(reader["Name"].ToString()));
+            var names = GetNames("SELECT DISTINCT(Name) FROM Salesperson " +
+                                 "INNER JOIN Orders " +
+                                 "ON Salesperson.Salespersonid = Orders.Salespersonid " +
+                                 "AND Orders.SalespersonID NOT IN (SELECT SalespersonID FROM Orders Where CustomerID = 4)");
 
             Assert.AreEqual(2, names.Count);
             Assert.Contains("Chris", names);
@@ -38,13 +33,11 @@ namespace CM
         [Test]
         public void TestGetNamesOfSalesPeopleThatHaveMoreThanOneOrder()
         {
-            var names = new List<string>();
-            ExecuteReader("SELECT Name FROM Salesperson " +
-                          "INNER JOIN Orders " +
-                          "ON Salesperson.Salespersonid = Orders.Salespersonid " +
-                          "GROUP BY SalesPerson.Name " +
-                          "HAVING COUNT(*) > 1", 
-                          reader => names.Add(reader["Name"].ToString()));
+            var names = GetNames("SELECT Name FROM Salesperson " +
+                                 "INNER JOIN Orders " +
+                                 "ON Salesperson.Salespersonid = Orders.Salespersonid " +
+                                 "GROUP BY SalesPerson.Name " +
+                                 "HAVING COUNT(*) > 1");
 
             Assert.AreEqual(2, names.Count);
             Assert.Contains("Alice", names);

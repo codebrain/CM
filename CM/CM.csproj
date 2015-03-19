@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Requirement10.cs" />
     <Compile Include="Requirement3.cs" />
     <Compile Include="Requirement1.cs" />
     <Compile Include="Requirement2.cs" />
