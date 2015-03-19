@@ -83,7 +83,7 @@ namespace CM
             Assert.AreEqual(4700, results["04-2013"]);
             Assert.AreEqual(2100, results["03-2013"]);
             Assert.AreEqual(600, results["02-2013"]);
-            Assert.AreEqual(1600, results["01-2013"]);
+            Assert.AreEqual(1600, results["01-2013"]);  
         }
     }
 }
