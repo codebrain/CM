@@ -32,6 +32,8 @@ if (!String.prototype.stripHtmlWithJQuery) {
     };
 }
 
+// Tests
+
 QUnit.test("Strip HTML Tests - using DOM", function (assert) {
     assert.equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithDom(), "Shoplifters of the World Unite!");
     assert.equal("1 &lt; 2".stripHtmlWithDom(), "1 &lt; 2");

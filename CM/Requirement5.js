@@ -10,6 +10,8 @@ if (!String.prototype.endsWith) {
     };
 }
 
+// Tests
+
 QUnit.test("Startwith Tests", function (assert) {
     assert.ok("hang the dj".startsWith("hang"));
     assert.ok("hang the dj".startsWith("Hang") == false);
