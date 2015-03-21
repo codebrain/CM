@@ -1,5 +1,5 @@
 ﻿/// <reference path="lib/he.js" />
-/// <reference path="lib/jquery.js" />
+/// <reference path="Scripts/jquery-2.1.3.min.js" />
 
 // There are a variety of ways to implement this function
 
@@ -34,17 +34,17 @@ if (!String.prototype.stripHtmlWithJQuery) {
 
 // Tests
 
-QUnit.test("Strip HTML Tests - using DOM", function (assert) {
-    assert.equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithDom(), "Shoplifters of the World Unite!");
-    assert.equal("1 &lt; 2".stripHtmlWithDom(), "1 &lt; 2");
+QUnit.test("Strip HTML Tests - using DOM", function () {
+    equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithDom(), "Shoplifters of the World Unite!");
+    equal("1 &lt; 2".stripHtmlWithDom(), "1 &lt; 2");
 });
 
-QUnit.test("Strip HTML Tests - using RegEx", function (assert) {
-    assert.equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithRegEx(), "Shoplifters of the World Unite!");
-    assert.equal("1 &lt; 2".stripHtmlWithRegEx(), "1 &lt; 2");
+QUnit.test("Strip HTML Tests - using RegEx", function () {
+    equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithRegEx(), "Shoplifters of the World Unite!");
+    equal("1 &lt; 2".stripHtmlWithRegEx(), "1 &lt; 2");
 });
 
-QUnit.test("Strip HTML Tests - using jQuery", function (assert) {
-    assert.equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithJQuery(), "Shoplifters of the World Unite!");
-    assert.equal("1 &lt; 2".stripHtmlWithJQuery(), "1 &lt; 2");
+QUnit.test("Strip HTML Tests - using jQuery", function () {
+    equal("<p>Shoplifters of the World <em>Unite</em>!</p>".stripHtmlWithJQuery(), "Shoplifters of the World Unite!");
+    equal("1 &lt; 2".stripHtmlWithJQuery(), "1 &lt; 2");
 });

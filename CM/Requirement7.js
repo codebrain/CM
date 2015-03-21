@@ -1,5 +1,5 @@
 ﻿/// <reference path="lib/he.js" />
-/// <reference path="lib/jquery.js" />
+/// <reference path="Scripts/jquery-2.1.3.min.js" />
 
 (function ($) {
     $.fn.openNewWindow = function (options) {
@@ -62,24 +62,24 @@ function newOpener(href, group, options) {
     windowOptions = options;
 }
 
-QUnit.test("Check plugin is chainable", function (assert) {
-    assert.ok($("a").openNewWindow({ opener: newOpener }).addClass("testing"), "can be chained");
-    assert.equal($("a").hasClass("testing"), true, "class was added correctly from chaining");
+QUnit.test("Check plugin is chainable", function () {
+    ok($("a").openNewWindow({ opener: newOpener }).addClass("testing"), "can be chained");
+    equal($("a").hasClass("testing"), true, "class was added correctly from chaining");
 });
 
-QUnit.test("Check plugin is working", function (assert) {
+QUnit.test("Check plugin is working", function () {
     $("#google").trigger("click");
-    assert.equal(windowHref, "http://www.google.com/", "Url set correctly");
-    assert.equal(windowGroup, "_blank", "Group set correctly");
-    assert.equal(windowOptions, "channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,toolbar=no,height=600,width=800", "Options set correctly");
+    equal(windowHref, "http://www.google.com/", "Url set correctly");
+    equal(windowGroup, "_blank", "Group set correctly");
+    equal(windowOptions, "channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,toolbar=no,height=600,width=800", "Options set correctly");
 
     $("#google-window").trigger("click");
-    assert.equal(windowHref, "http://www.google.com/", "Url set correctly");
-    assert.equal(windowGroup, "Disney", "Group set correctly");
-    assert.equal(windowOptions, "channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,toolbar=no,height=600,width=800", "Options set correctly");
+    equal(windowHref, "http://www.google.com/", "Url set correctly");
+    equal(windowGroup, "Disney", "Group set correctly");
+    equal(windowOptions, "channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,toolbar=no,height=600,width=800", "Options set correctly");
 
     $("#disney-window").trigger("click");
-    assert.equal(windowHref, "http://www.disney.com/", "Url set correctly");
-    assert.equal(windowGroup, "Disney", "Group set correctly");
-    assert.equal(windowOptions, "channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,toolbar=no,height=600,width=800", "Options set correctly");
+    equal(windowHref, "http://www.disney.com/", "Url set correctly");
+    equal(windowGroup, "Disney", "Group set correctly");
+    equal(windowOptions, "channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,toolbar=no,height=600,width=800", "Options set correctly");
 });
