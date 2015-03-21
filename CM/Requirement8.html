@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>CM JS dev, requirement 8</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="container" style="padding-top:30px">
+            <div>
+                <p><a href="#">Load the current issues list</a></p>
+            </div>
+            <div id="results" style="display:none">
+                <!-- Each issue should be rendered with the following template -->
+                <div class="issue-template">
+                    <h3>Issue Title - Begin 10 minutes ago</h3> <!-- If status === Unresolved -->
+                    <h3>Issue Title - Resolved 10 minutes ago</h3> <!-- If status === Resolved -->
+                    <p>Issue description</p>
+                    <div style="padding-left:50px">
+                        <p>Updates:</p>
+                        <!-- Each update should be rendered with the following template -->
+                        <div class="update-template">                    
+                            <p>Update</p>
+                            <em>By Mat 10 minutes ago</em>
+                            <hr style="width:50%"/>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+                <!-- Render this if there are no issues returned -->
+                <div class="no-issues-template">
+                    Everybody is happy!
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

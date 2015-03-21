@@ -73,6 +73,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="test.jsonp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -83,6 +84,7 @@
     <Content Include="lib\qunit.css" />
     <Content Include="lib\qunit.js" />
     <Content Include="JavaScriptTests.html" />
+    <Content Include="Requirement8.html" />
     <Content Include="Requirement8.js" />
     <Content Include="Requirement7.js" />
     <Content Include="Requirement6.js" />
