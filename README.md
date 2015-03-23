@@ -12,7 +12,10 @@ LinkedIn: https://au.linkedin.com/in/codebrain
 
 ##Automated Build
 
-This GIT repo is connected to AppVeyor - a continuous deployment system. On check in:
+This GIT repo is connected to AppVeyor - a continuous deployment system:
+https://ci.appveyor.com/project/codebrain26434/cm
+
+On check in:
 
 1. Nuget packages are restored
 2. Solution is built
