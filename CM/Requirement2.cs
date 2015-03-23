@@ -16,7 +16,7 @@ namespace CM
         /// <remarks>
         ///  Naive implementation that uses a simplistic brute-force approach.
         ///  This could be further improved if the input range was known, perhaps using a cached lookup table.
-        ///  This implementation doesn't check to see if input is prime (perhaps using a lookup table if the input range was known).
+        ///  This implementation doesn't check to see if input is prime (perhaps using a lookup table if the input range was known - http://www.umopit.ru/CompLab/primes32eng.htm).
         ///  Basically, if there were additional requirements, I would have adjusted the solution :)
         /// </remarks>
         public static IEnumerable<int> BruteForcePositiveDivisors(int input)
@@ -39,6 +39,7 @@ namespace CM
         [Test]
         [TestCase(60, new[] { 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 })]
         [TestCase(42, new[] { 1, 2, 3, 6, 7, 14, 21, 42 })]
+        [TestCase(10831, new[] { 1, 10831 })] // Prime
         public void Test(int input, int[] expected)
         {
             CollectionAssert.AreEqual(expected, BruteForcePositiveDivisors(input));

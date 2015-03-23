@@ -1,5 +1,4 @@
-﻿/// <reference path="lib/he.js" />
-/// <reference path="Scripts/jquery-2.1.3.min.js" />
+﻿/// <reference path="Scripts/jquery-2.1.3.min.js" />
 
 (function ($) {
     $.fn.openNewWindow = function (options) {

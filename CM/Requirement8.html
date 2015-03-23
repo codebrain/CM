@@ -4,20 +4,43 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" media="screen">
 
     <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/angular-animate.min.js"></script>
     <script src="Scripts/moment.min.js"></script>
     <script src="Scripts/angular-moment.min.js"></script>
 
     <script src="Requirement8.js"></script>
+    <link rel="stylesheet" href="lib/animate.css" />
+    
+    <style type="text/css">
+        
+        .glyphicon.spinning {
+            animation: spin 1s infinite linear;
+            -webkit-animation: spin2 1s infinite linear;
+        }
 
+        @keyframes spin {
+            from { transform: scale(1) rotate(0deg);}
+            to { transform: scale(1) rotate(360deg);}
+        }
+
+        @-webkit-keyframes spin2 {
+            from { -webkit-transform: rotate(0deg);}
+            to { -webkit-transform: rotate(360deg);}
+        }
+
+         .fader {
+             -webkit-animation: fadeIn 1s;
+             -moz-animation: fadeIn 1s;
+             -ms-animation: fadeIn 1s;
+             animation: fadeIn 1s;
+         }
+    </style>
 </head>
-
 <body ng-controller="statusCtrl">
     <div class="container" style="padding-top:30px">
         <div id="loading" ng-if="!loaded">
-            Loading...
+            <span class="glyphicon glyphicon-refresh spinning"></span> Loading...
         </div>
-        <div id="results" ng-if="loaded && statuses.length > 0">
+        <div id="results" class="fader" ng-if="haveProblems()">
             <div class="issue-template" ng-repeat="status in statuses">
                 <h3 ng-if="status.status == 'Unresolved'">{{status.status}} - Begin <span am-time-ago="status.beganAt"></span></h3>
                 <h3 ng-if="status.status == 'Resolved'">{{status.title}} - Resolved <span am-time-ago="status.resolvedAt"></span></h3>
@@ -33,11 +56,11 @@
                 <hr />
             </div>
         </div>
-        <div id="results" ng-if="loaded && statuses.length == 0">
+        <div id="no-results" class="fader" ng-if="noProblems()">
             <div class="no-issues-template">Everybody is happy!</div>
         </div>
-        <div id="error" ng-if="loaded && error">
-            Error retrieving statuses: {{ error }}
+        <div id="error" ng-if="haveError()">
+            <span class="glyphicon glyphicon-warning-sign"></span> Error retrieving statuses: {{ error }}
         </div>
     </div>
 </body>
